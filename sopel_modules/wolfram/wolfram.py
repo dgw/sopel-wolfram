@@ -33,6 +33,8 @@ def setup(bot):
 def wa_query(bot, trigger):
     if not trigger.group(2):
         return bot.say('[Wolfram] You must provide a query')
+    elif not bot.config.wolfram.app_id:
+        return bot.say('[Wolfram] A Wolfram app ID must be configured for this module to function.')
     client = wolframalpha.Client(bot.config.wolfram.app_id)
 
     try:
