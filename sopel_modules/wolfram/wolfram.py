@@ -32,15 +32,15 @@ def setup(bot):
 @commands('wa', 'wolfram')
 def wa_query(bot, trigger):
     if not trigger.group(2):
-        return bot.say('[Wolfram] You must provide a query')
+        return bot.say('[W|A] You must provide a query')
     elif not bot.config.wolfram.app_id:
-        return bot.say('[Wolfram] Wolfram|Alpha API app ID not configured.')
+        return bot.say('[W|A] Wolfram|Alpha API app ID not configured.')
     client = wolframalpha.Client(bot.config.wolfram.app_id)
 
     try:
         result = client.query(trigger.group(2))
     except Exception as e:
-        return bot.say('[Wolfram] An error occurred ({})'.format(e.message))
+        return bot.say('[W|A] An error occurred ({})'.format(e.message))
 
     for pod in result.pods:
         if pod.id not in output_ids:
@@ -48,6 +48,6 @@ def wa_query(bot, trigger):
         return bot.say('{}: {}'.format(pod.title, pod.text))
 
     if len(result.pods) > 0:
-        return bot.say('[Wolfram] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(trigger.group(2))))
+        return bot.say('[W|A] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(trigger.group(2))))
 
-    return bot.say('[Wolfram] No results found.')
+    return bot.say('[W|A] No results found.')
