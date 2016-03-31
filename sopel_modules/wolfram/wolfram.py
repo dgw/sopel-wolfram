@@ -45,7 +45,7 @@ def wa_query(bot, trigger):
     for pod in result.pods:
         if pod.id not in output_ids:
             continue
-        return bot.say('{}: {}'.format(pod.title, pod.text))
+        return bot.say('[W|A] {}: {}'.format(pod.title, pod.text))
 
     if len(result.pods) > 0:
         return bot.say('[W|A] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(trigger.group(2))))
