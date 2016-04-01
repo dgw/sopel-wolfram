@@ -8,7 +8,7 @@ Packaged for PyPI by dgw (@dgw)
 
 from __future__ import unicode_literals
 from sopel.config.types import StaticSection, ValidatedAttribute
-from sopel.module import commands
+from sopel.module import commands, example
 from sopel import web
 import wolframalpha
 import json
@@ -30,6 +30,8 @@ def setup(bot):
 
 
 @commands('wa', 'wolfram')
+@example('.wa 2+2', 'Result: 4')
+@example('.wa python language release date', 'Result: 1991')
 def wa_query(bot, trigger):
     if not trigger.group(2):
         return bot.say('[W|A] You must provide a query')
