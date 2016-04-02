@@ -42,13 +42,14 @@ Usage
 ::
 
     <User> .wa 2+2
-    <Sopel> Result: 4
+    <Sopel> [W|A] Result: 4
 
     <User> .wa python language release date
-    <Sopel> Result: 1991
+    <Sopel> [W|A] Result: 1991
 
-    <maxpowa> .wa airspeed velocity of an unladen swallow
-    <Inumuta> Result: 25 mph  (miles per hour)(asked, but not answered, about a general swallow in the 1975 film Monty Python and the Holy Grail)
+    <User> .wa airspeed velocity of an unladen swallow
+    <Sopel> [W|A] Result: 25 mph  (miles per hour)(asked, but not answered, about a general
+            swallow in the 1975 film Monty Python and the Holy Grail)
 
 Support
 -------
