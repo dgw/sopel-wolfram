@@ -1,5 +1,22 @@
+Changelog
+=========
+
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
+
+sopel-wolfram v0.1.2 "Switch"
+=============================
+
+Updates:
+
+* Shorten some error messages
+* Identify as "[W|A]" instead of "[Wolfram]" in output for brevity
+* Ensure all module output is prefixed
+* Add more examples to help output and README
+
+Meta:
+
+* README now includes installation instructions and where to get help/report bugs
 
 sopel-wolfram v0.1.1 "Already"
 ==============================

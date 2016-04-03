@@ -27,7 +27,7 @@ with open('dev-requirements.txt') as dev_requirements_file:
 
 setup(
     name='sopel_modules.wolfram',
-    version='0.1.1',
+    version='0.1.2',
     description='Wolfram|Alpha module for Sopel IRC bot framework',
     long_description=readme + '\n\n' + history,
     author='Max Gurela',
