@@ -28,8 +28,9 @@ installations. Instead, to upgrade to the latest code, do::
 Configuration
 -------------
 
-The Wolfram\|Alpha API requires a key to be added in the bot’s config.
-Sign up for API access at http://developer.wolframalpha.com/portal/apisignup.html and add the App ID to Sopel’s configuration file:
+The Wolfram\|Alpha API requires a key to be added in the bot’s config. Sign up for API
+access at http://developer.wolframalpha.com/portal/apisignup.html and add the App ID
+to Sopel’s configuration file:
 
 ::
 
