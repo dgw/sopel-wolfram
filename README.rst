@@ -52,6 +52,16 @@ Usage
     <Sopel> [W|A] Result: 25 mph  (miles per hour)(asked, but not answered, about a general
             swallow in the 1975 film Monty Python and the Holy Grail)
 
+A Note About Reloading
+----------------------
+
+In versions of sopel up to 6.3.1 (the last tested version), reloading a third-party module
+installed from pip, such as wolfram, results in duplicated output. This is `a known issue in
+sopel <https://github.com/sopel-irc/sopel/issues/1056>`_ and is being worked on.
+
+**Workaround:** After updating sopel-wolfram through pip, restart the bot at your earliest
+convenience to enable the latest code.
+
 Support
 -------
 
