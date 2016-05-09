@@ -11,7 +11,6 @@ from sopel.config.types import StaticSection, ValidatedAttribute
 from sopel.module import commands, example
 from sopel import web
 import wolframalpha
-import json
 
 output_ids = ['DecimalApproximation', 'Result', 'ExactResult']
 
@@ -50,6 +49,7 @@ def wa_query(bot, trigger):
         return bot.say('[W|A] {}: {}'.format(pod.title, pod.text))
 
     if len(result.pods) > 0:
-        return bot.say('[W|A] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(trigger.group(2))))
+        return bot.say('[W|A] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(
+            web.quote(trigger.group(2))))
 
     return bot.say('[W|A] No results found.')
