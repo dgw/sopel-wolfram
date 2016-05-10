@@ -31,25 +31,32 @@ def setup(bot):
 @commands('wa', 'wolfram')
 @example('.wa 2+2', '[W|A] Result: 4')
 @example('.wa python language release date', '[W|A] Result: 1991')
-def wa_query(bot, trigger):
+def wa_command(bot, trigger):
+    msg = None
     if not trigger.group(2):
-        return bot.say('[W|A] You must provide a query')
-    elif not bot.config.wolfram.app_id:
-        return bot.say('[W|A] Wolfram|Alpha API app ID not configured.')
-    client = wolframalpha.Client(bot.config.wolfram.app_id)
+        msg = 'You must provide a query.'
+    if not bot.config.wolfram.app_id:
+        msg = 'Wolfram|Alpha API app ID not configured.'
+
+    return bot.say('[W|A] {}'.format(msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))))
+
+
+def wa_query(app_id, query):
+    if not app_id:
+        return 'Wolfram|Alpha API app ID not provided.'
+    client = wolframalpha.Client(app_id)
 
     try:
-        result = client.query(trigger.group(2))
+        result = client.query(query)
     except Exception as e:
-        return bot.say('[W|A] An error occurred ({})'.format(e.message))
+        return 'An error occurred ({})'.format(e.message)
 
     for pod in result.pods:
         if pod.id not in output_ids:
             continue
-        return bot.say('[W|A] {}: {}'.format(pod.title, pod.text))
+        return '{}: {}'.format(pod.title, pod.text)
 
     if len(result.pods) > 0:
-        return bot.say('[W|A] No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(
-            web.quote(trigger.group(2))))
+        return 'No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(query))
 
-    return bot.say('[W|A] No results found.')
+    return 'No results found.'
