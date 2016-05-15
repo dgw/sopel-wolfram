@@ -51,10 +51,14 @@ def wa_query(app_id, query):
     except Exception as e:
         return 'An error occurred ({})'.format(e.message)
 
-    for pod in result.pods:
-        if pod.id not in output_ids:
-            continue
-        return '{}: {}'.format(pod.title, pod.text)
+    if len(result.pods) >= 2:
+        try:
+            input = result.pods[0].text
+            output = result.pods[1].text
+        except (IndexError, KeyError):
+            pass
+        else:
+            return '{} = {}'.format(input, output)
 
     if len(result.pods) > 0:
         return 'No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(query))
