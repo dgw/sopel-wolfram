@@ -49,7 +49,7 @@ def wa_query(app_id, query):
     try:
         result = client.query(query)
     except Exception as e:
-        return 'An error occurred ({})'.format(e.message)
+        return 'An error occurred: {}'.format(e.message or 'Unknown error, try again!')
 
     if len(result.pods) >= 2:
         try:
