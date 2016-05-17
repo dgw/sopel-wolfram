@@ -12,8 +12,6 @@ from sopel.module import commands, example
 from sopel import web
 import wolframalpha
 
-output_ids = ['DecimalApproximation', 'Result', 'ExactResult']
-
 
 class WolframSection(StaticSection):
     app_id = ValidatedAttribute('app_id', default=None)
@@ -29,8 +27,8 @@ def setup(bot):
 
 
 @commands('wa', 'wolfram')
-@example('.wa 2+2', '[W|A] Result: 4')
-@example('.wa python language release date', '[W|A] Result: 1991')
+@example('.wa 2+2', '[W|A] 2+2 = 4')
+@example('.wa python language release date', '[W|A] Python | date introduced = 1991')
 def wa_command(bot, trigger):
     msg = None
     if not trigger.group(2):

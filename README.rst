@@ -43,13 +43,14 @@ Usage
 ::
 
     <User> .wa 2+2
-    <Sopel> [W|A] Result: 4
+    <Sopel> [W|A] 2+2 = 4
 
     <User> .wa python language release date
-    <Sopel> [W|A] Result: 1991
+    <Sopel> [W|A] Python | date introduced = 1991
 
     <User> .wa airspeed velocity of an unladen swallow
-    <Sopel> [W|A] Result: 25 mph  (miles per hour)(asked, but not answered, about a general
+    <Sopel> [W|A] estimated average cruising airspeed of an unladen European swallow
+            = 25 mph  (miles per hour)(asked, but not answered, about a general
             swallow in the 1975 film Monty Python and the Holy Grail)
 
 A Note About Reloading
