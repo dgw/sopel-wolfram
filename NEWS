@@ -4,6 +4,19 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+sopel-wolfram v0.2.0
+--------------------
+
+Updates:
+
+* Try a lot harder to give useful output (#3)
+* Tell user to try again if an unspecified error occurs (empty error message)
+
+Meta:
+
+* Cleanup: PEP8 & unused imports
+* Refactor to make future addition of integration tests easier
+
 sopel-wolfram v0.1.2 "Switch"
 -----------------------------
 
