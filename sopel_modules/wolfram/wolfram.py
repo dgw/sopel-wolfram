@@ -36,7 +36,10 @@ def wa_command(bot, trigger):
     if not bot.config.wolfram.app_id:
         msg = 'Wolfram|Alpha API app ID not configured.'
 
-    return bot.say('[W|A] {}'.format(msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))))
+    lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))).splitlines()
+
+    for line in lines:
+        bot.say('[W|A] {}'.format(line))
 
 
 def wa_query(app_id, query):
