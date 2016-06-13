@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stash anything not committed to git
+git stash save --include-untracked "Stash before release"
+
 # remove old distributions (if any)
 rm dist/*
 
@@ -19,3 +22,6 @@ python3 setup.py bdist_wheel
 # upload distributions
 
 twine upload dist/*
+
+# reapply stashed changes from git
+git stash pop
