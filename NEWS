@@ -4,12 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
-Unreleased
-----------
+sopel-wolfram v0.2.1
+--------------------
 
 Updates:
 
 * Output now split into multiple messages when line breaks are present (#4)
+* Tell pip we do not want wolframalpha 3.0 yet (#6)
 
 sopel-wolfram v0.2.0
 --------------------
