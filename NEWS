@@ -11,16 +11,16 @@ Updates:
 
 * Results longer than 3 lines will be sent via NOTICE instead of flooding channels (#8)
 
-sopel-wolfram v0.2.1
---------------------
+sopel-wolfram v0.2.1 "Mae shika mukanee"
+----------------------------------------
 
 Updates:
 
 * Output now split into multiple messages when line breaks are present (#4)
 * Tell pip we do not want wolframalpha 3.0 yet (#6)
 
-sopel-wolfram v0.2.0
---------------------
+sopel-wolfram v0.2.0 "Miraibashi"
+---------------------------------
 
 Updates:
 
