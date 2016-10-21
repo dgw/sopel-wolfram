@@ -1,9 +1,9 @@
 # coding=utf8
 """
-Wolfram|Alpha module for Sopel IRC framework
-Original code copyright 2016 Max Gurela (@maxpowa), sourced from
+Wolfram|Alpha module for Sopel IRC bot framework
+Forked from code by Max Gurela (@maxpowa):
 https://github.com/maxpowa/inumuta-modules/blob/e0b195c4f1e1b788fa77ec2144d39c4748886a6a/wolfram.py
-Packaged for PyPI by dgw (@dgw)
+Updated and packaged for PyPI by dgw (@dgw)
 """
 
 from __future__ import unicode_literals
