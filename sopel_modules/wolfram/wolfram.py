@@ -38,8 +38,12 @@ def wa_command(bot, trigger):
 
     lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))).splitlines()
 
-    for line in lines:
-        bot.say('[W|A] {}'.format(line))
+    if len(lines) <= 3:
+        for line in lines:
+            bot.say('[W|A] {}'.format(line))
+    else:
+        for line in lines:
+            bot.notice('[W|A] {}'.format(line), trigger.nick)
 
 
 def wa_query(app_id, query):

@@ -4,6 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+Unreleased
+----------
+
+Updates:
+
+* Results longer than 3 lines will be sent via NOTICE instead of flooding channels (#8)
+
 sopel-wolfram v0.2.1
 --------------------
 
