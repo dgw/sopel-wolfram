@@ -32,6 +32,8 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Max Gurela',
     author_email='maxpowa1@gmail.com',
+    maintainer='dgw',
+    maintainer_email='sopel-wolfram@dgw.me',
     url='https://github.com/dgw/sopel-wolfram',
     packages=find_packages('.'),
     namespace_packages=['sopel_modules'],
