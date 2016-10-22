@@ -6,8 +6,8 @@ Wolfram\|Alpha module for Sopel IRC bot framework
 Installation
 ------------
 
-This package's full name is ``sopel-modules.wolfram`` and it is listed on PyPI under
-that identifier.
+This package's full name is ``sopel-modules.wolfram`` and it is `listed on PyPI
+<https://pypi.python.org/pypi/sopel-modules.wolfram>`_ under that identifier.
 
 The only supported installation method is via ``pip``::
 
