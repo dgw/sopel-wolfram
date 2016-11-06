@@ -56,7 +56,7 @@ Usage
 A Note About Reloading
 ----------------------
 
-In versions of sopel up to 6.4.0 (the last tested version), reloading a third-party module
+In versions of sopel up to 6.5.0 (the last tested version), reloading a third-party module
 installed from pip, such as wolfram, results in duplicated output. This is `a known issue in
 sopel <https://github.com/sopel-irc/sopel/issues/1056>`_ and is being worked on.
 
