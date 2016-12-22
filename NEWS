@@ -4,6 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+Unreleased
+----------
+
+Updates:
+
+* Add support for wolframalpha 3.0 and allow pip to install any 2.x or 3.x version (#11)
+
 sopel-wolfram v0.3.1 "Nusumareta kuchibiru"
 -------------------------------------------
 
