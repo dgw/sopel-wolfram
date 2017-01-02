@@ -50,6 +50,7 @@ def wa_query(app_id, query):
     if not app_id:
         return 'Wolfram|Alpha API app ID not provided.'
     client = wolframalpha.Client(app_id)
+    query = query.encode('utf-8').strip()
 
     try:
         result = client.query(query)
