@@ -7,9 +7,13 @@ Ticket numbers in changelog entries can be looked up by visiting
 Unreleased
 ----------
 
-Updates:
+Deprecated:
 
-* Add support for wolframalpha 3.0 and allow pip to install any 2.x or 3.x version (#11)
+* Support for wolframalpha < 2.4 has been dropped (#11)
+
+Added:
+
+* Support for wolframalpha 3.0 with fallback to 2.4 (#11)
 
 sopel-wolfram v0.3.1 "Nusumareta kuchibiru"
 -------------------------------------------

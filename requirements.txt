@@ -1,2 +1,2 @@
 sopel>=6.0,<7
-wolframalpha>=2.0,<4.0
+wolframalpha>=2.4,<4.0
