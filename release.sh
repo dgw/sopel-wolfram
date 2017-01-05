@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # stash anything not committed to git
-git stash save --include-untracked "Stash before release"
+old_stash=$(git rev-parse -q --verify refs/stash)
+git stash save -q --include-untracked "Stash before release"
+new_stash=$(git rev-parse -q --verify refs/stash)
 
 # remove old distributions (if any)
 rm dist/*
@@ -23,5 +25,7 @@ python3 setup.py bdist_wheel
 
 twine upload dist/*
 
-# reapply stashed changes from git
-git stash pop
+# reapply stashed changes from git only if pre-release stash was non-empty
+if [ "$old_stash" != "$new_stash" ]; then
+    git stash pop -q
+fi
