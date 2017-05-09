@@ -68,8 +68,12 @@ def wa_query(app_id, query):
 
     try:
         try:
-            input = next(result.pods).text
-            output = next(result.results).text
+            texts = []
+            for pod in result.pods:
+                texts.append(pod.text)
+                if len(texts) >= 2:  # len() is O(1); this cheaply avoids copying more strings than needed
+                    break
+            input, output = texts[0], texts[1]
         except StopIteration:
             raise
         except (TypeError, AttributeError):
