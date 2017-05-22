@@ -15,11 +15,13 @@ import wolframalpha
 
 class WolframSection(StaticSection):
     app_id = ValidatedAttribute('app_id', default=None)
+    max_public = ValidatedAttribute('max_public', default=5)
 
 
 def configure(config):
     config.define_section('wolfram', WolframSection, validate=False)
     config.wolfram.configure_setting('app_id', 'Application ID')
+    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE')
 
 
 def setup(bot):
@@ -38,7 +40,7 @@ def wa_command(bot, trigger):
 
     lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))).splitlines()
 
-    if len(lines) <= 3:
+    if len(lines) <= bot.config.wolfram.max_public:
         for line in lines:
             bot.say('[W|A] {}'.format(line))
     else:
