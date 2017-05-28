@@ -7,10 +7,6 @@ Ticket numbers in changelog entries can be looked up by visiting
 Unreleased
 ----------
 
-Deprecated:
-
-* Support for wolframalpha < 2.4 has been dropped (#11)
-
 Added:
 
 * Support for wolframalpha 3.0 with fallback to 2.4 (#11)
