@@ -51,9 +51,12 @@ def wa_query(app_id, query):
         return 'Wolfram|Alpha API app ID not provided.'
     client = wolframalpha.Client(app_id)
     query = query.encode('utf-8').strip()
+    params = (
+        ('format', 'plaintext'),
+    )
 
     try:
-        result = client.query(query)
+        result = client.query(input=query, params=params)
     except Exception as e:
         return 'An error occurred: {}'.format(e.message or 'Unknown error, try again!')
 
