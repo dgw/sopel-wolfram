@@ -36,6 +36,7 @@ to Sopel’s configuration file:
 
     [wolfram]
     app_id = yourappidgoeshere
+    max_public = 5
 
 Usage
 -----
