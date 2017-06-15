@@ -4,12 +4,19 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+sopel-wolfram v0.3.2 "Kimi ga omotteru yori"
+--------------------------------------------
+
+Fixes:
+
+* Non-ASCII text in output is no longer `\:encoded` (#15)
+
 sopel-wolfram v0.3.1 "Nusumareta kuchibiru"
 -------------------------------------------
 
 Updates:
 
-* Unicode-encode query to avoid UnicodeEncodeError on non-ASCII characters
+* Unicode-encode query to avoid UnicodeEncodeError on non-ASCII characters (#10)
 
 sopel-wolfram v0.3.0 "So long!"
 -------------------------------
