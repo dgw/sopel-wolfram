@@ -3,6 +3,14 @@ Sopel Wolfram\|Alpha module
 
 Wolfram\|Alpha module for Sopel IRC bot framework
 
+Requirements
+------------
+
+* Sopel 6.x
+* wolframalpha 2.4+
+
+Note: Support for wolframalpha 3.0 was added in v0.4.0.
+
 Installation
 ------------
 

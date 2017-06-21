@@ -4,6 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+Unreleased
+----------
+
+Added:
+
+* Support for wolframalpha 3.0 with fallback to 2.4 (#11)
+
 sopel-wolfram v0.3.2 "Kimi ga omotteru yori"
 --------------------------------------------
 

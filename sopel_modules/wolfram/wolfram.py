@@ -60,16 +60,34 @@ def wa_query(app_id, query):
     except Exception as e:
         return 'An error occurred: {}'.format(e.message or 'Unknown error, try again!')
 
-    if len(result.pods) >= 2:
-        try:
-            input = result.pods[0].text
-            output = result.pods[1].text
-        except (IndexError, KeyError):
-            pass
-        else:
-            return '{} = {}'.format(input, output)
+    num_results = 0
+    try:  # try wolframalpha 3.x way
+        num_results = int(result['@numpods'])
+    except TypeError:  # fall back to wolframalpha 2.x way
+        num_results = len(result.pods)
+    finally:
+        if num_results == 0:
+            return 'No results found.'
 
-    if len(result.pods) > 0:
-        return 'No text-representable result found, see http://wolframalpha.com/input/?i={}'.format(web.quote(query))
+    texts = []
+    try:
+        for pod in result.pods:
+            try:
+                texts.append(pod.text)
+            except AttributeError:
+                pass  # pod with no text; skip it
+            except Exception:
+                raise  # raise unexpected exceptions to outer try for bug reports
+            if len(texts) >= 2:
+                break  # len() is O(1); this cheaply avoids copying more strings than needed
+    except Exception as e:
+        return 'Unhandled {}; please report the query used ("{}") at https://dgw.me/wabug'.format(type(e), query)
 
-    return 'No results found.'
+    try:
+        input, output = texts[0], texts[1]
+    except IndexError:
+        return 'No text-representable result found; see http://wolframalpha.com/input/?i={}'.format(web.quote(query))
+
+    if not output:
+        return input
+    return '{} = {}'.format(input, output)
