@@ -57,8 +57,10 @@ def wa_query(app_id, query):
 
     try:
         result = client.query(input=query, params=params)
+    except AssertionError:
+        return 'Temporary API issue. Try again in a moment.'
     except Exception as e:
-        return 'An error occurred: {}'.format(e.message or 'Unknown error, try again!')
+        return 'Query failed: {} ({})'.format(type(e).__name__, e.message or 'Unknown error, try again!')
 
     num_results = 0
     try:  # try wolframalpha 3.x way
@@ -81,7 +83,7 @@ def wa_query(app_id, query):
             if len(texts) >= 2:
                 break  # len() is O(1); this cheaply avoids copying more strings than needed
     except Exception as e:
-        return 'Unhandled {}; please report the query used ("{}") at https://dgw.me/wabug'.format(type(e), query)
+        return 'Unhandled {}; please report this query ("{}") at https://dgw.me/wabug'.format(type(e).__name__, query)
 
     try:
         input, output = texts[0], texts[1]
