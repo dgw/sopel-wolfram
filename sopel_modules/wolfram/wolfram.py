@@ -53,6 +53,7 @@ def wa_query(app_id, query):
     query = query.encode('utf-8').strip()
     params = (
         ('format', 'plaintext'),
+        ('units', 'metric'),
     )
 
     try:
