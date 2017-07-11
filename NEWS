@@ -10,6 +10,8 @@ Unreleased
 Added:
 
 * Support for wolframalpha 3.0 with fallback to 2.4 (#11)
+* New configuration option ``units``, to specify whether the API should return
+  ``metric`` (default) or ``nonmetric`` measurements (#18; see #16)
 
 sopel-wolfram v0.3.2 "Kimi ga omotteru yori"
 --------------------------------------------
