@@ -7,7 +7,7 @@ Updated and packaged for PyPI by dgw (@dgw)
 """
 
 from __future__ import unicode_literals
-from sopel.config.types import StaticSection, ValidatedAttribute
+from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
 from sopel.module import commands, example
 from sopel import web
 import wolframalpha
@@ -16,6 +16,7 @@ import wolframalpha
 class WolframSection(StaticSection):
     app_id = ValidatedAttribute('app_id', default=None)
     max_public = ValidatedAttribute('max_public', default=5)
+    units = ChoiceAttribute('units', choices=['metric', 'nonmetric'], default='metric')
 
 
 def configure(config):
@@ -38,7 +39,7 @@ def wa_command(bot, trigger):
     if not bot.config.wolfram.app_id:
         msg = 'Wolfram|Alpha API app ID not configured.'
 
-    lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2))).splitlines()
+    lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2), bot.config.wolfram.units)).splitlines()
 
     if len(lines) <= bot.config.wolfram.max_public:
         for line in lines:
@@ -48,13 +49,14 @@ def wa_command(bot, trigger):
             bot.notice('[W|A] {}'.format(line), trigger.nick)
 
 
-def wa_query(app_id, query):
+def wa_query(app_id, query, units='metric'):
     if not app_id:
         return 'Wolfram|Alpha API app ID not provided.'
     client = wolframalpha.Client(app_id)
     query = query.encode('utf-8').strip()
     params = (
         ('format', 'plaintext'),
+        ('units', units),
     )
 
     try:

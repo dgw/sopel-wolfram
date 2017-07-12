@@ -12,6 +12,8 @@ Added:
 * Support for wolframalpha 3.0 with fallback to 2.4 (#11)
 * New configuration option `max_public`, a number defining the maximum number of lines
   that can be sent without using NOTICEs. Default: 5 (#13)
+* New configuration option ``units``, to specify whether the API should return
+  ``metric`` (default) or ``nonmetric`` measurements (#18; see #16)
 
 Updates:
 
