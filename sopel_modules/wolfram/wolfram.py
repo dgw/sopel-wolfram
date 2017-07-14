@@ -59,8 +59,16 @@ def wa_query(app_id, query, units='metric'):
         ('units', units),
     )
 
-    try:
-        result = client.query(input=query, params=params)
+    try:  # Remove this mess for the next bump after 0.4
+        try:  # wolframalpha 3.x supports extra stuff
+            result = client.query(input=query, params=params)  # This is the only necessary line post-0.4
+        except TypeError:  # fall back to query-only for 2.x
+            try:
+                result = client.query(query)
+            except:
+                raise  # send any exceptions to the outer level
+        except:
+            raise  # ditto; the 0.4 mess ends here
     except AssertionError:
         return 'Temporary API issue. Try again in a moment.'
     except Exception as e:

@@ -9,7 +9,9 @@ Requirements
 * Sopel 6.x
 * wolframalpha 2.4+
 
-Note: Support for wolframalpha 3.0 was added in v0.4.0.
+Note: Some features are unavailable when run with wolframalpha 2.4. Support for
+wolframalpha 2.4 is deprecated and will be removed in a future release. All bugs must
+be reported against sopel-wolfram with wolframalpha 3.0+.
 
 Installation
 ------------
