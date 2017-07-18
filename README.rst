@@ -38,6 +38,9 @@ installations. Instead, to upgrade to the latest code, do::
 Configuration
 -------------
 
+Required
+::::::::
+
 The Wolfram\|Alpha API requires a key to be added in the bot’s config. Sign up for API
 access at http://developer.wolframalpha.com/portal/apisignup.html and add the App ID
 to Sopel’s configuration file:
@@ -46,7 +49,13 @@ to Sopel’s configuration file:
 
     [wolfram]
     app_id = yourappidgoeshere
-    max_public = 5
+
+Optional
+::::::::
+
+* ``max_public``: the number of lines over which results will be sent in NOTICE instead of
+  to the channel (default: 10)
+* ``units``: the measurements to use in results, ``metric`` or ``nonmetric`` (needs wolframalpha 3.0)
 
 Usage
 -----
