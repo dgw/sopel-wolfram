@@ -9,5 +9,5 @@ from .wolfram import *
 
 __author__ = 'Max Gurela'
 __email__ = 'maxpowa1@gmail.com'
-__version__ = '0.4.0-dev'
+__version__ = '0.4.0'
 
