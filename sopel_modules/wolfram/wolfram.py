@@ -15,7 +15,7 @@ import wolframalpha
 
 class WolframSection(StaticSection):
     app_id = ValidatedAttribute('app_id', default=None)
-    max_public = ValidatedAttribute('max_public', default=5)
+    max_public = ValidatedAttribute('max_public', parse=int, default=5)
     units = ChoiceAttribute('units', choices=['metric', 'nonmetric'], default='metric')
 
 
