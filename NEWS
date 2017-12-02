@@ -4,6 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+Unreleased
+----------
+
+Fixed:
+
+* Option ``max_public`` could cause errors (#21)
+
 sopel-wolfram v0.4.0 "Mirai no kajitsu"
 ---------------------------------------
 
