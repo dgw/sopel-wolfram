@@ -4,12 +4,15 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
-Unreleased
-----------
+sopel-wolfram v0.4.1 "Kibou ni tsuite"
+--------------------------------------
+
+This release named in memory of LuckyNumber78, who changed lives every day simply
+by being her excitable, fun-loving self. She is missed by many.
 
 Fixed:
 
-* Option ``max_public`` could cause errors (#21)
+* ``max_public`` setting could cause errors because it was treated as a string (#21)
 
 sopel-wolfram v0.4.0 "Mirai no kajitsu"
 ---------------------------------------
