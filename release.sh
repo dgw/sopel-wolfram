@@ -10,8 +10,9 @@ rm dist/*
 
 # generate new distributions
 
-## source distributions for *nix & Windows
-python setup.py sdist --formats=gztar,zip
+## source distribution
+## PyPI only allows one format, so use the most common (.tar.gz)
+python setup.py sdist --formats=gztar
 
 ## binary wheels
 ### universal
