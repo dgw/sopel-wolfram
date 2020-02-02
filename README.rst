@@ -1,17 +1,15 @@
-Sopel Wolfram\|Alpha module
+Sopel Wolfram\|Alpha plugin
 ===========================
 
-Wolfram\|Alpha module for Sopel IRC bot framework
+Wolfram\|Alpha plugin for Sopel IRC bot framework
+
 
 Requirements
 ------------
 
-* Sopel 6.x
-* wolframalpha 2.4+
+* Sopel 7.x
+* wolframalpha 3.x
 
-Note: Some features are unavailable when run with wolframalpha 2.4. Support for
-wolframalpha 2.4 is deprecated and will be removed in a future release. All bugs must
-be reported against sopel-wolfram with wolframalpha 3.0+.
 
 Installation
 ------------
@@ -29,11 +27,12 @@ Development versions can be installed from GitHub via ``pip`` also::
 
     pip install git+https://github.com/dgw/sopel-wolfram.git@master
 
-Note that ``pip`` does not keep track of packages obtained from sources outside of
-PyPI, so ``pip install --upgrade sopel-modules.wolfram`` will not work for GitHub
-installations. Instead, to upgrade to the latest code, do::
+Note that ``pip`` does not keep track of packages obtained from sources outside
+of PyPI, so ``pip install --upgrade sopel-modules.wolfram`` will not work for
+GitHub installations. Instead, to upgrade to the latest code, do::
 
     pip install --upgrade git+https://github.com/dgw/sopel-wolfram.git@master
+
 
 Configuration
 -------------
@@ -41,9 +40,9 @@ Configuration
 Required
 ::::::::
 
-The Wolfram\|Alpha API requires a key to be added in the bot’s config. Sign up for API
-access at http://developer.wolframalpha.com/portal/apisignup.html and add the App ID
-to Sopel’s configuration file:
+The Wolfram\|Alpha API requires a key to be added in the bot’s config. Click
+the "Get an AppID" button at https://developer.wolframalpha.com/portal/myapps/
+and add your new AppID to Sopel’s configuration file:
 
 ::
 
@@ -53,9 +52,11 @@ to Sopel’s configuration file:
 Optional
 ::::::::
 
-* ``max_public``: the number of lines over which results will be sent in NOTICE instead of
-  to the channel (default: 10)
-* ``units``: the measurements to use in results, ``metric`` or ``nonmetric`` (needs wolframalpha 3.0)
+* ``max_public``: the number of lines over which results will be sent in NOTICE
+  instead of to the channel (default: 10)
+* ``units``: measurement system displayed in results, either ``metric`` (the
+  default) or ``nonmetric``
+
 
 Usage
 -----
@@ -69,19 +70,19 @@ Usage
     <Sopel> [W|A] Python | date introduced = 1991
 
     <User> .wa airspeed velocity of an unladen swallow
-    <Sopel> [W|A] estimated average cruising airspeed of an unladen European swallow
-            = 25 mph  (miles per hour)(asked, but not answered, about a general
-            swallow in the 1975 film Monty Python and the Holy Grail)
+    <Sopel> [W|A] estimated average cruising airspeed of an unladen European
+            swallow = 25 mph  (miles per hour)(asked, but not answered, about a
+            general swallow in the 1975 film Monty Python and the Holy Grail)
+
 
 A Note About Reloading
 ----------------------
 
-In versions of sopel up to 6.5.0 (the last tested version), reloading a third-party module
-installed from pip, such as wolfram, results in duplicated output. This is `a known issue in
-sopel <https://github.com/sopel-irc/sopel/issues/1056>`_ and is being worked on.
+Due to Python limitations, reloading a "packaged" Sopel plugin such as this
+one, might not actually reload all of the code. After updating sopel-wolfram,
+please restart the bot at your earliest convenience, rather than using Sopel's
+``.reload`` function. The last tested version was: Sopel 7.0.0
 
-**Workaround:** After updating sopel-wolfram through pip, restart the bot at your earliest
-convenience to enable the latest code.
 
 Support
 -------

@@ -8,8 +8,8 @@ Updated and packaged for PyPI by dgw (@dgw)
 
 from __future__ import unicode_literals
 from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
-from sopel.module import commands, example
-from sopel import web
+from sopel.module import commands, example, output_prefix
+from sopel.tools import web
 import wolframalpha
 
 
@@ -30,8 +30,9 @@ def setup(bot):
 
 
 @commands('wa', 'wolfram')
-@example('.wa 2+2', '[W|A] 2+2 = 4')
-@example('.wa python language release date', '[W|A] Python | date introduced = 1991')
+@example('.wa 2+2', '2 + 2 = 4')
+@example('.wa python language release date', 'Python | date introduced = 1991')
+@output_prefix('[W|A] ')
 def wa_command(bot, trigger):
     msg = None
     if not trigger.group(2):
@@ -43,10 +44,10 @@ def wa_command(bot, trigger):
 
     if len(lines) <= bot.config.wolfram.max_public:
         for line in lines:
-            bot.say('[W|A] {}'.format(line))
+            bot.say(line)
     else:
         for line in lines:
-            bot.notice('[W|A] {}'.format(line), trigger.nick)
+            bot.notice(line, trigger.nick)
 
 
 def wa_query(app_id, query, units='metric'):
@@ -59,29 +60,15 @@ def wa_query(app_id, query, units='metric'):
         ('units', units),
     )
 
-    try:  # Remove this mess for the next bump after 0.4
-        try:  # wolframalpha 3.x supports extra stuff
-            result = client.query(input=query, params=params)  # This is the only necessary line post-0.4
-        except TypeError:  # fall back to query-only for 2.x
-            try:
-                result = client.query(query)
-            except:
-                raise  # send any exceptions to the outer level
-        except:
-            raise  # ditto; the 0.4 mess ends here
+    try:
+        result = client.query(input=query, params=params)
     except AssertionError:
         return 'Temporary API issue. Try again in a moment.'
     except Exception as e:
         return 'Query failed: {} ({})'.format(type(e).__name__, e.message or 'Unknown error, try again!')
 
-    num_results = 0
-    try:  # try wolframalpha 3.x way
-        num_results = int(result['@numpods'])
-    except TypeError:  # fall back to wolframalpha 2.x way
-        num_results = len(result.pods)
-    finally:
-        if num_results == 0:
-            return 'No results found.'
+    if int(result['@numpods']) == 0:
+        return 'No results found.'
 
     texts = []
     try:
@@ -95,12 +82,12 @@ def wa_query(app_id, query, units='metric'):
             if len(texts) >= 2:
                 break  # len() is O(1); this cheaply avoids copying more strings than needed
     except Exception as e:
-        return 'Unhandled {}; please report this query ("{}") at https://dgw.me/wabug'.format(type(e).__name__, query)
+        return 'Unhandled {}; please report this query ("{}") at https://git.io/wabug'.format(type(e).__name__, query)
 
     try:
         input, output = texts[0], texts[1]
     except IndexError:
-        return 'No text-representable result found; see http://wolframalpha.com/input/?i={}'.format(web.quote(query))
+        return 'No text-representable result found; see https://wolframalpha.com/input/?i={}'.format(web.quote(query))
 
     if not output:
         return input
