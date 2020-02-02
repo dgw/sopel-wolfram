@@ -4,6 +4,22 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+sopel-wolfram v0.5.0 "ALIVE"
+----------------------------
+
+That's "ALIVE" as in "This project isn't DEAD" (despite the last release being over two years old).
+
+Updated:
+
+* Sopel 7.x now supported & required (#23)
+* Dropped support for Sopel 6.x (#23)
+* Dropped support for wolframalpha 2.x (#23)
+* Internal refactoring to take advantage of new Sopel features (#23)
+
+Meta:
+
+* No more ZIP releases; PyPI only allows one file type now (#22)
+
 sopel-wolfram v0.4.1 "Kibou ni tsuite"
 --------------------------------------
 
