@@ -1,16 +1,17 @@
-# coding=utf8
 """
-Wolfram|Alpha module for Sopel IRC bot framework
+Wolfram|Alpha plugin for Sopel IRC bot framework
+
 Forked from code by Max Gurela (@maxpowa):
 https://github.com/maxpowa/inumuta-modules/blob/e0b195c4f1e1b788fa77ec2144d39c4748886a6a/wolfram.py
 Updated and packaged for PyPI by dgw (@dgw)
 """
+from __future__ import annotations
 
-from __future__ import unicode_literals
-from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
-from sopel.module import commands, example, output_prefix
-from sopel.tools import web
 import wolframalpha
+
+from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
+from sopel.plugin import commands, example, output_prefix
+from sopel.tools import web
 
 
 class WolframSection(StaticSection):

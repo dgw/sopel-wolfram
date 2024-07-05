@@ -1,11 +1,10 @@
-Changelog
-=========
+## Changelog
 
 Ticket numbers in changelog entries can be looked up by visiting
-``https://github.com/dgw/sopel-wolfram/issue/<number>``
+`https://github.com/dgw/sopel-wolfram/issue/<number>`
 
-sopel-wolfram v0.5.0 "ALIVE"
-----------------------------
+
+### 0.5.0 "ALIVE"
 
 That's "ALIVE" as in "This project isn't DEAD" (despite the last release being over two years old).
 
@@ -20,26 +19,26 @@ Meta:
 
 * No more ZIP releases; PyPI only allows one file type now (#22)
 
-sopel-wolfram v0.4.1 "Kibou ni tsuite"
---------------------------------------
+
+### 0.4.1 "Kibou ni tsuite"
 
 This release named in memory of LuckyNumber78, who changed lives every day simply
 by being her excitable, fun-loving self. She is missed by many.
 
 Fixed:
 
-* ``max_public`` setting could cause errors because it was treated as a string (#21)
+* `max_public` setting could cause errors because it was treated as a string (#21)
 
-sopel-wolfram v0.4.0 "Mirai no kajitsu"
----------------------------------------
+
+### 0.4.0 "Mirai no kajitsu"
 
 Added:
 
 * Support for wolframalpha 3.0 with transitional fallback to 2.4 (#11, #19; see README notes)
-* New configuration option ``max_public``, a number defining the maximum number of lines
+* New configuration option `max_public`, a number defining the maximum number of lines
   that can be sent without using NOTICEs. Default: 5 (#13)
-* New configuration option ``units``, to specify whether the API should return
-  ``metric`` (default) or ``nonmetric`` measurements (#18; see #16)
+* New configuration option `units`, to specify whether the API should return
+  `metric` (default) or `nonmetric` measurements (#18; see #16)
 
 Updated:
 
@@ -47,32 +46,32 @@ Updated:
 
 Fixed:
 
-* Non-ASCII text in output is no longer ``\:encoded`` (#15)
+* Non-ASCII text in output is no longer `\:encoded` (#15)
 
-sopel-wolfram v0.3.1 "Nusumareta kuchibiru"
--------------------------------------------
+
+### 0.3.1 "Nusumareta kuchibiru"
 
 Updates:
 
 * Unicode-encode query to avoid UnicodeEncodeError on non-ASCII characters (#10)
 
-sopel-wolfram v0.3.0 "So long!"
--------------------------------
+
+### 0.3.0 "So long!"
 
 Updates:
 
 * Results longer than 3 lines will be sent via NOTICE instead of flooding channels (#8)
 
-sopel-wolfram v0.2.1 "Mae shika mukanee"
-----------------------------------------
+
+### 0.2.1 "Mae shika mukanee"
 
 Updates:
 
 * Output now split into multiple messages when line breaks are present (#4)
 * Tell pip we do not want wolframalpha 3.0 yet (#6)
 
-sopel-wolfram v0.2.0 "Miraibashi"
----------------------------------
+
+### 0.2.0 "Miraibashi"
 
 Updates:
 
@@ -84,8 +83,8 @@ Meta:
 * Cleanup: PEP8 & unused imports
 * Refactor to make future addition of integration tests easier
 
-sopel-wolfram v0.1.2 "Switch"
------------------------------
+
+### 0.1.2 "Switch"
 
 Updates:
 
@@ -98,20 +97,20 @@ Meta:
 
 * README now includes installation instructions and where to get help/report bugs
 
-sopel-wolfram v0.1.1 "Already"
-------------------------------
+
+### 0.1.1 "Already"
 
 Updates:
 
-* Now outputs error if app_id is missing (#1)
+* Now outputs error if `app_id` is missing (#1)
 
 Meta:
 
-* README reformatted (thanks @\ `maxpowa <https://github.com/maxpowa>`_)
+* README reformatted (thanks @[maxpowa](https://github.com/maxpowa))
 * Begin maintaining version history in NEWS file
 
 
-sopel-wolfram v0.1.0 "Beginner"
+### 0.1.0 "Beginner"
 -------------------------------
 
 * Initial release
