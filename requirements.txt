@@ -1,2 +1,0 @@
-sopel~=7.0
-wolframalpha~=3.0.1

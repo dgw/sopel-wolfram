@@ -1,28 +1,41 @@
-# coding=utf8
 """
-Wolfram|Alpha module for Sopel IRC bot framework
+Wolfram|Alpha plugin for Sopel IRC bot framework
+
 Forked from code by Max Gurela (@maxpowa):
 https://github.com/maxpowa/inumuta-modules/blob/e0b195c4f1e1b788fa77ec2144d39c4748886a6a/wolfram.py
 Updated and packaged for PyPI by dgw (@dgw)
 """
+from __future__ import annotations
 
-from __future__ import unicode_literals
-from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
-from sopel.module import commands, example, output_prefix
-from sopel.tools import web
 import wolframalpha
+
+from sopel.config.types import (
+    ChoiceAttribute,
+    SecretAttribute,
+    StaticSection,
+    ValidatedAttribute,
+)
+from sopel.plugin import commands, example, output_prefix
+from sopel.tools import web
+
+
+UNITS = ('metric', 'nonmetric')
 
 
 class WolframSection(StaticSection):
-    app_id = ValidatedAttribute('app_id', default=None)
+    app_id = SecretAttribute('app_id', default=None)
     max_public = ValidatedAttribute('max_public', parse=int, default=5)
-    units = ChoiceAttribute('units', choices=['metric', 'nonmetric'], default='metric')
+    units = ChoiceAttribute('units', choices=UNITS, default=UNITS[0])
 
 
 def configure(config):
     config.define_section('wolfram', WolframSection, validate=False)
-    config.wolfram.configure_setting('app_id', 'Application ID')
-    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE')
+    config.wolfram.configure_setting('app_id', 'Wolfram|Alpha App ID:')
+    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE:')
+    config.wolfram.configure_setting(
+        'units',
+        'Unit system to use in output ({}):'.format(', '.join(UNITS)),
+    )
 
 
 def setup(bot):
@@ -53,8 +66,9 @@ def wa_command(bot, trigger):
 def wa_query(app_id, query, units='metric'):
     if not app_id:
         return 'Wolfram|Alpha API app ID not provided.'
+
     client = wolframalpha.Client(app_id)
-    query = query.encode('utf-8').strip()
+    query = query.strip()
     params = (
         ('format', 'plaintext'),
         ('units', units),
@@ -65,7 +79,7 @@ def wa_query(app_id, query, units='metric'):
     except AssertionError:
         return 'Temporary API issue. Try again in a moment.'
     except Exception as e:
-        return 'Query failed: {} ({})'.format(type(e).__name__, e.message or 'Unknown error, try again!')
+        return 'Query failed: {} ({})'.format(type(e).__name__, str(e) or 'Unknown error, try again!')
 
     if int(result['@numpods']) == 0:
         return 'No results found.'
