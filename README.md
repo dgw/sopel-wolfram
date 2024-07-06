@@ -13,7 +13,7 @@ $ pip install sopel-wolfram
 ### Requirements
 
 * Sopel 8.x
-* wolframalpha 3.x
+* wolframalpha 5.x
 
 You will also need a Wolfram|Alpha App ID; see details below in the
 "Configuring" section.

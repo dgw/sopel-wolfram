@@ -55,8 +55,9 @@ def wa_command(bot, trigger):
 def wa_query(app_id, query, units='metric'):
     if not app_id:
         return 'Wolfram|Alpha API app ID not provided.'
+
     client = wolframalpha.Client(app_id)
-    query = query.encode('utf-8').strip()
+    query = query.strip()
     params = (
         ('format', 'plaintext'),
         ('units', units),

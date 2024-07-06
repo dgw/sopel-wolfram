@@ -43,8 +43,8 @@ keywords = [
 
 requires-python = ">=3.8, <4"
 dependencies = [
-  "sopel~=7.1",
-  "wolframalpha~=3.0.1",
+  "sopel~=8.0",
+  "wolframalpha~=5.0",
 ]
 
 [project.urls]
