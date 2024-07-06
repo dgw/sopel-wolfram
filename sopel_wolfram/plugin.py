@@ -14,17 +14,23 @@ from sopel.plugin import commands, example, output_prefix
 from sopel.tools import web
 
 
+UNITS = ('metric', 'nonmetric')
+
+
 class WolframSection(StaticSection):
     app_id = ValidatedAttribute('app_id', default=None)
     max_public = ValidatedAttribute('max_public', parse=int, default=5)
-    units = ChoiceAttribute('units', choices=['metric', 'nonmetric'], default='metric')
+    units = ChoiceAttribute('units', choices=UNITS, default=UNITS[0])
 
 
 def configure(config):
     config.define_section('wolfram', WolframSection, validate=False)
     config.wolfram.configure_setting('app_id', 'Wolfram|Alpha App ID:')
     config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE:')
-    config.wolfram.configure_setting('units', 'Unit system to use in output:')
+    config.wolfram.configure_setting(
+        'units',
+        'Unit system to use in output ({}):'.format(', '.join(UNITS)),
+    )
 
 
 def setup(bot):
