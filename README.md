@@ -39,7 +39,7 @@ Wolfram|Alpha at https://developer.wolframalpha.com/
 Optional settings:
 
 * `max_public`: the number of lines over which results will be sent in NOTICE
-  instead of to the channel (default: 10)
+  instead of to the channel (default: 5)
 * `units`: measurement system displayed in results, either `metric` (the
   default) or `nonmetric`
 

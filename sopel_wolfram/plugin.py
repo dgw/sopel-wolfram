@@ -22,8 +22,9 @@ class WolframSection(StaticSection):
 
 def configure(config):
     config.define_section('wolfram', WolframSection, validate=False)
-    config.wolfram.configure_setting('app_id', 'Application ID')
-    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE')
+    config.wolfram.configure_setting('app_id', 'Wolfram|Alpha App ID:')
+    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE:')
+    config.wolfram.configure_setting('units', 'Unit system to use in output:')
 
 
 def setup(bot):
@@ -66,7 +67,7 @@ def wa_query(app_id, query, units='metric'):
     except AssertionError:
         return 'Temporary API issue. Try again in a moment.'
     except Exception as e:
-        return 'Query failed: {} ({})'.format(type(e).__name__, e.message or 'Unknown error, try again!')
+        return 'Query failed: {} ({})'.format(type(e).__name__, str(e) or 'Unknown error, try again!')
 
     if int(result['@numpods']) == 0:
         return 'No results found.'
