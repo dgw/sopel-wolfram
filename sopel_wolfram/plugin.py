@@ -9,7 +9,12 @@ from __future__ import annotations
 
 import wolframalpha
 
-from sopel.config.types import StaticSection, ChoiceAttribute, ValidatedAttribute
+from sopel.config.types import (
+    ChoiceAttribute,
+    SecretAttribute,
+    StaticSection,
+    ValidatedAttribute,
+)
 from sopel.plugin import commands, example, output_prefix
 from sopel.tools import web
 
@@ -18,7 +23,7 @@ UNITS = ('metric', 'nonmetric')
 
 
 class WolframSection(StaticSection):
-    app_id = ValidatedAttribute('app_id', default=None)
+    app_id = SecretAttribute('app_id', default=None)
     max_public = ValidatedAttribute('max_public', parse=int, default=5)
     units = ChoiceAttribute('units', choices=UNITS, default=UNITS[0])
 
