@@ -4,6 +4,19 @@ Ticket numbers in changelog entries can be looked up by visiting
 `https://github.com/dgw/sopel-wolfram/issue/<number>`
 
 
+### 0.6.0 "Bocchi de Skip"
+
+First release as `sopel-wolfram`, replacing the old `sopel_modules.wolfram`
+package for Sopel 7 and older.
+
+Updated:
+
+* Sopel 8.x and Python 3.8+ now required (#25)
+* Upgraded to `wolframalpha` 5.x (#25)
+* Modernized packaging & package metadata (#25)
+* Streamlined documentation (#25)
+
+
 ### 0.5.0 "ALIVE"
 
 That's "ALIVE" as in "This project isn't DEAD" (despite the last release being

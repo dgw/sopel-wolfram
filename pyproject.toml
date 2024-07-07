@@ -14,7 +14,7 @@ readme = { file=["README.md", "NEWS"], content-type="text/markdown" }
 
 [project]
 name = "sopel-wolfram"
-version = "0.6.0.dev0"
+version = "0.6.0"
 description = "Wolfram|Alpha plugin for the Sopel IRC bot framework"
 
 authors = [
