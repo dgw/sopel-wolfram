@@ -6,7 +6,8 @@ Ticket numbers in changelog entries can be looked up by visiting
 
 ### 0.5.0 "ALIVE"
 
-That's "ALIVE" as in "This project isn't DEAD" (despite the last release being over two years old).
+That's "ALIVE" as in "This project isn't DEAD" (despite the last release being
+over two years old).
 
 Updated:
 
@@ -34,9 +35,10 @@ Fixed:
 
 Added:
 
-* Support for wolframalpha 3.0 with transitional fallback to 2.4 (#11, #19; see README notes)
-* New configuration option `max_public`, a number defining the maximum number of lines
-  that can be sent without using NOTICEs. Default: 5 (#13)
+* Support for wolframalpha 3.0 with transitional fallback to 2.4 (#11, #19; see
+  README notes)
+* New configuration option `max_public`, a number defining the maximum number of
+  lines that can be sent without using NOTICEs. Default: 5 (#13)
 * New configuration option `units`, to specify whether the API should return
   `metric` (default) or `nonmetric` measurements (#18; see #16)
 
@@ -60,7 +62,8 @@ Updates:
 
 Updates:
 
-* Results longer than 3 lines will be sent via NOTICE instead of flooding channels (#8)
+* Results longer than 3 lines will be sent via NOTICE instead of flooding
+  channels (#8)
 
 
 ### 0.2.1 "Mae shika mukanee"
@@ -95,7 +98,8 @@ Updates:
 
 Meta:
 
-* README now includes installation instructions and where to get help/report bugs
+* README now includes installation instructions and where to get help/report
+  bugs
 
 
 ### 0.1.1 "Already"
@@ -114,4 +118,5 @@ Meta:
 -------------------------------
 
 * Initial release
-* Adopted from https://github.com/maxpowa/inumuta-modules/blob/e0b195c/wolfram.py with permission
+* Adopted with permission from
+  https://github.com/maxpowa/inumuta-modules/blob/e0b195c/wolfram.py
