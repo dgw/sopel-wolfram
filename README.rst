@@ -3,6 +3,9 @@ Sopel Wolfram\|Alpha plugin
 
 Wolfram\|Alpha plugin for Sopel IRC bot framework
 
+**Important: This package is no longer updated.** Please install `sopel-wolfram
+<https://pypi.org/project/sopel-wolfram/>`_ for use with Sopel 8.0 and higher.
+
 
 Requirements
 ------------

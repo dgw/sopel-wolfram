@@ -4,6 +4,13 @@ Changelog
 Ticket numbers in changelog entries can be looked up by visiting
 ``https://github.com/dgw/sopel-wolfram/issue/<number>``
 
+sopel-wolfram v0.5.0.post1
+--------------------------
+
+Metadata/description changes only. This package has been replaced by
+`sopel-wolfram <https://pypi.org/project/sopel-wolfram/>`_ for Sopel 8+.
+
+
 sopel-wolfram v0.5.0 "ALIVE"
 ----------------------------
 
