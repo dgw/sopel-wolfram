@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=63.0", "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -24,21 +24,21 @@ maintainers = [
   { name="dgw", email="dgw@technobabbl.es" },
 ]
 
-license = { text="EFL-2.0" }
+license = "EFL-2.0"
+license-files = ["COPYING"]
 dynamic = ["readme"]
 
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Intended Audience :: Developers",
   "Intended Audience :: System Administrators",
-  "License :: Eiffel Forum License (EFL)",
-  "License :: OSI Approved :: Eiffel Forum License",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Communications :: Chat :: Internet Relay Chat",
 ]
 keywords = [
