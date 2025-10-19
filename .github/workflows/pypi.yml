@@ -8,11 +8,8 @@ permissions:
   contents: read
 
 jobs:
-  upload:
+  build:
     runs-on: ubuntu-latest
-    environment: release
-    permissions:
-      id-token: write
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -25,5 +22,23 @@ jobs:
         pip install build
     - name: Build package
       run: python -m build
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: built-distributions
+        path: dist/
+
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: built-distributions
+        path: dist/
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
