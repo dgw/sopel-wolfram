@@ -7,8 +7,6 @@ Updated and packaged for PyPI by dgw (@dgw)
 """
 from __future__ import annotations
 
-import wolframalpha
-
 from sopel.config.types import (
     ChoiceAttribute,
     SecretAttribute,
@@ -17,6 +15,8 @@ from sopel.config.types import (
 )
 from sopel.plugin import commands, example, output_prefix
 from sopel.tools import web
+
+from .vendor import wolframalpha
 
 
 UNITS = ('metric', 'nonmetric')

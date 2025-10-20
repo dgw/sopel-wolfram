@@ -13,10 +13,18 @@ $ pip install sopel-wolfram
 ### Requirements
 
 * Sopel 8.x
-* wolframalpha 5.x
+* wolframalpha 5.x*
 
 You will also need a Wolfram|Alpha App ID; see details below in the
 "Configuring" section.
+
+\* — _The MIT-licensed `wolframalpha` library is vendored in this release, to
+work around [this bug][wa-gh35]. Doing it this way is safest; the best
+alternative was pinning to the Git branch of [a pull request fixing it][wa-gh36]
+that could be deleted at any time._
+
+[wa-gh35]: https://github.com/jaraco/wolframalpha/issues/35
+[wa-gh36]: https://github.com/jaraco/wolframalpha/pull/36
 
 
 ## Configuring
