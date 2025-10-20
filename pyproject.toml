@@ -52,7 +52,14 @@ keywords = [
 requires-python = ">=3.8, <4"
 dependencies = [
   "sopel~=8.0",
-  "wolframalpha~=5.0",
+  # Temporarily disabled while using a vendored copy w/bugfix
+  # "wolframalpha~=5.0",
+  # Below are dependencies for the vendored copy of `wolframalpha`
+  "xmltodict",
+  "more_itertools",
+  "jaraco.context",
+  "httpx",
+  "multidict",
 ]
 
 [project.urls]
