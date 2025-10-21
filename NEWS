@@ -4,6 +4,21 @@ Ticket numbers in changelog entries can be looked up by visiting
 `https://github.com/dgw/sopel-wolfram/issue/<number>`
 
 
+### 0.6.1 "Mirai to wa?"
+
+Updated:
+
+* `wolframalpha` library now bundled, for [bug-fixing reasons][]\
+  Should upstream resume development, `sopel-wolfram` will switch back.
+
+Meta:
+
+* Future-proofed, PEP639-compliant license metadata (#27)
+* Updated build/publish workflow (#27)
+
+[bug-fixing reasons]: https://github.com/jaraco/wolframalpha/issues/35
+
+
 ### 0.6.0 "Bocchi de Skip"
 
 First release as `sopel-wolfram`, replacing the old `sopel_modules.wolfram`
