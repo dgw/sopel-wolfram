@@ -33,8 +33,6 @@ classifiers = [
   "Intended Audience :: Developers",
   "Intended Audience :: System Administrators",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -52,14 +50,7 @@ keywords = [
 requires-python = ">=3.8, <4"
 dependencies = [
   "sopel~=8.0",
-  # Temporarily disabled while using a vendored copy w/bugfix
-  # "wolframalpha~=5.0",
-  # Below are dependencies for the vendored copy of `wolframalpha`
-  "xmltodict",
-  "more_itertools",
-  "jaraco.context",
-  "httpx",
-  "multidict",
+  "wolframalpha>=5.1.4",
 ]
 
 [project.urls]

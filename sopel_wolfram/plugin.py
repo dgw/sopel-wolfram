@@ -16,7 +16,7 @@ from sopel.config.types import (
 from sopel.plugin import commands, example, output_prefix
 from sopel.tools import web
 
-from .vendor import wolframalpha
+import wolframalpha
 
 
 UNITS = ('metric', 'nonmetric')
