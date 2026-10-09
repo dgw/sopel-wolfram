@@ -8,6 +8,7 @@ Updated and packaged for PyPI by dgw (@dgw)
 from __future__ import annotations
 
 from sopel.config.types import (
+    BooleanAttribute,
     ChoiceAttribute,
     SecretAttribute,
     StaticSection,
@@ -26,12 +27,16 @@ class WolframSection(StaticSection):
     app_id = SecretAttribute('app_id', default=None)
     max_public = ValidatedAttribute('max_public', parse=int, default=5)
     units = ChoiceAttribute('units', choices=UNITS, default=UNITS[0])
+    condense = BooleanAttribute('condense', default=False)
 
 
 def configure(config):
     config.define_section('wolfram', WolframSection, validate=False)
     config.wolfram.configure_setting('app_id', 'Wolfram|Alpha App ID:')
-    config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE:')
+    config.wolfram.configure_setting('condense', 'Condense multi-line output into one line?')
+    if not config.wolfram.condense:
+        # no need to configure this if condensing, since it's not used
+        config.wolfram.configure_setting('max_public', 'Maximum lines before sending answer in NOTICE:')
     config.wolfram.configure_setting(
         'units',
         'Unit system to use in output ({}):'.format(', '.join(UNITS)),
@@ -55,7 +60,12 @@ def wa_command(bot, trigger):
 
     lines = (msg or wa_query(bot.config.wolfram.app_id, trigger.group(2), bot.config.wolfram.units)).splitlines()
 
-    if len(lines) <= bot.config.wolfram.max_public:
+    if bot.config.wolfram.condense:
+        bot.say(
+            ' | '.join(line.strip() for line in lines if line.strip()),
+            truncation=' […]',
+        )
+    elif len(lines) <= bot.config.wolfram.max_public:
         for line in lines:
             bot.say(line)
     else:
