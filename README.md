@@ -38,8 +38,11 @@ Wolfram|Alpha at https://developer.wolframalpha.com/
 
 Optional settings:
 
+* `condense`: if `True`, multi-line results will be output as a single message
+  with `|` separating the lines (default: `False`, which mimics the Rizon bot
+  called Internets)
 * `max_public`: the number of lines over which results will be sent in NOTICE
-  instead of to the channel (default: 5)
+  instead of to the channel; has no effect if `condense` is `True` (default: 5)
 * `units`: measurement system displayed in results, either `metric` (the
   default) or `nonmetric`
 
