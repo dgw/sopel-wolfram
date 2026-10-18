@@ -4,6 +4,19 @@ Ticket numbers in changelog entries can be looked up by visiting
 `https://github.com/dgw/sopel-wolfram/issue/<number>`
 
 
+### 0.7.0 "Aru hi fui ni..."
+
+Added:
+
+* New `condense` setting for single-line output (#29)\
+  Replaces newlines with `|` separator, uses as much of the IRC line as possible
+  but gracefully truncates the response instead of falling back to NOTICE.
+
+Updated:
+
+* `wolframalpha` library unbundled, now that upstream has made a new release
+
+
 ### 0.6.1 "Mirai to wa?"
 
 Updated:
